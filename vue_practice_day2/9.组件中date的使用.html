@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date使用</title>
+</head>
+<body>
+
+<div id="app">
+    <!--  没有 <first><h1>{{username}}</h1></first>  这种用法 -->
+    <first></first>
+    <hr>
+    <h1>{{username}}</h1>
+</div>
+
+<script src="js/vue.min.js"></script>
+
+<script>
+
+    let first = {
+        template: `
+            <div>
+                <span>{{username}}</span>
+                <h3 @click="change">{{count}}</h3>
+            </div>
+        `,
+        data: function () {
+            return {
+                username: "李某",
+                count: 30,
+            }
+        },
+        methods: {
+            change() {
+                this.count--;
+            }
+        }
+    }
+    Vue.component("first", first)
+
+    new Vue({
+        el: "#app",
+        data: {
+            username: "黄某",
+        },
+    })
+</script>
+
+</body>
+</html>
